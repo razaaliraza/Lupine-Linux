@@ -22,8 +22,8 @@ patch-linux:
 		git apply ../kml_4.0_001.diff
 
 build-linux:
-	docker run -it -v "$(PWD)/linux":/linux-volume --rm linuxbuild:latest	\
-		bash -c "make -j8 -C /linux-volume"
+	sudo docker run --privileged -it -v "$(PWD)/linux":/linux-volume --rm linuxbuild:latest	\
+		bash -c "make -j32 -C /linux-volume"
 
 build-linux-lto:
 	docker run -it -v "$(PWD)/linux-misc":/linux-volume --rm linuxbuild:latest	\
