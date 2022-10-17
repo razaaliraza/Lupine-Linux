@@ -2,7 +2,7 @@
 # This file takes config files and build a kernel base on the config
 # The kernel built would be placed into a directory
 
-unpatch-linux() {
+unpatchlinux(){
     pushd $LINUX
     git reset --hard HEAD
     git clean -fd
@@ -14,7 +14,7 @@ LINUX="linux"
 if [[ $1 == "nopatch" ]]; then
     echo "You are using nopatch kernel source"
     NOPATCH="true"
-    unpatch-linux
+    unpatchlinux
     shift
 else
     make patch-linux || true
